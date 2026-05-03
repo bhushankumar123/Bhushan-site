@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Bhushan | Personal Hub</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root {
+  --bg1: #1e3c72;
+  --bg2: #2a5298;
+  --accent: #00f5ff;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, var(--bg1), var(--bg2));
+  color: white;
+  transition: 0.5s;
+}
+
+/* HEADER */
+header {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+h1 {
+  font-size: 42px;
+}
+
+section {
+  max-width: 900px;
+  margin: auto;
+  padding: 20px;
+}
+
+.card {
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(12px);
+  padding: 20px;
+  border-radius: 15px;
+  margin-top: 20px;
+}
+
+/* BUTTONS */
+button {
+  background: var(--accent);
+  border: none;
+  padding: 10px 15px;
+  margin: 5px;
+  border-radius: 10px;
+  cursor: pointer;
+  color: black;
+  font-weight: bold;
+}
+
+/* INPUT */
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 10px;
+  border: none;
+}
+
+/* CODE BOX */
+.code-box {
+  background: #111;
+  padding: 15px;
+  border-radius: 10px;
+  font-family: monospace;
+  min-height: 120px;
+  color: #00ff9d;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>Hi, I'm Bhushan 👋</h1>
+  <p>My Digital Identity Hub</p>
+</header>
+
+<section>
+  <div class="card">
+    <h2>🎨 Change Theme</h2>
+    <button onclick="setTheme('#1e3c72','#2a5298','#00f5ff')">Blue</button>
+    <button onclick="setTheme('#42275a','#734b6d','#ff00cc')">Purple</button>
+    <button onclick="setTheme('#0f2027','#203a43','#00c6ff')">Dark</button>
+    <button onclick="setTheme('#ff512f','#dd2476','#ffff00')">Sunset</button>
+  </div>
+</section>
+
+<section>
+  <div class="card">
+    <h2>👤 About Me</h2>
+    <p>I'm Bhushan — I love creativity, coding, and building aesthetic digital experiences.</p>
+  </div>
+</section>
+
+<section>
+  <div class="card">
+    <h2>📚 Skills</h2>
+    <ul>
+      <li>Web Design</li>
+      <li>Editing & Creativity</li>
+      <li>Basic Coding (Java / Python)</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="card">
+    <h2>🧮 Math Tool</h2>
+    <input type="text" id="calc" placeholder="Type math like 5+6*2">
+    <button onclick="calculate()">Calculate</button>
+    <p id="result"></p>
+  </div>
+</section>
+
+<section>
+  <div class="card">
+    <h2>💻 Code Playground</h2>
+    <textarea id="codeInput" placeholder="Write Java / Python logic here..."></textarea>
+    <button onclick="runCode()">Run</button>
+    <div class="code-box" id="output">Output will show here...</div>
+  </div>
+</section>
+
+<section>
+  <div class="card">
+    <h2>📞 Contact</h2>
+    <p>Instagram: your_username</p>
+    <p>Email: your@email.com</p>
+  </div>
+</section>
+
+<script>
+function setTheme(bg1, bg2, accent) {
+  document.documentElement.style.setProperty('--bg1', bg1);
+  document.documentElement.style.setProperty('--bg2', bg2);
+  document.documentElement.style.setProperty('--accent', accent);
+}
+
+function calculate() {
+  let input = document.getElementById("calc").value;
+  try {
+    document.getElementById("result").innerText = "Result: " + eval(input);
+  } catch {
+    document.getElementById("result").innerText = "Invalid Input";
+  }
+}
+
+function runCode() {
+  let code = document.getElementById("codeInput").value;
+  document.getElementById("output").innerText =
+    "⚠️ This is a demo viewer only.\n\nYour Code:\n" + code;
+}
+</script>
+
+</body>
+</html>
